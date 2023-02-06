@@ -431,15 +431,168 @@ print(fruits[2:5])--> ["cherry","orange","kiwi"]  // 2 included and 5 excluded
 range(1,10)--->9
 
 
+{ }
+
+
+
+Functions
+---------
+
+A function is a named set of intructions, which will perform a specific task
+
+system/ pre defined functions and user defined functions
+
+
+print()
+input()
+sqrt()
+random(10)
+
+		ncr---> n!/ (n-r)! * r!
+
+
+for x in range(1,n):
+	fact1 = fact1 * x
+
+for x in range(1,n-r):
+	fact2 = fact2 * x
+
+for x in ragne(1,r):
+	fact3 = fact3 * x
+
+NCR = fact1/ (fact2 * fact3)
+
+
+sytax;
+------
+def funtion_name(list fof variables):
+	function body
+	[return value]
+
+
+
+def display():
+	x=20
+	print("This is first line in method")
+	print("This is second line in method")
+	print("This is third line in method")
+	print(x)
+
+x=200
+print(x)
+
+
+Parameter passing
+-----------------
+1. pass by value
+
+2. pass by reference
+
+in python ----> pass by reference
+
+
+>>> def display():
+...     print("first line ")
+...     print("second line")
+...     print("third line")
+...
+>>> display()
+first line
+second line
+third line
+>>> def addtion(a,b):
+...     print("The sum is :",(a+b))
+...
+>>> addtion(10,20)
+The sum is : 30
+>>> print("hello")
+hello
+>>> x = input("enter a name")
+enter a namepraveen
+>>> x
+'praveen'
+>>> def test():
+...     x=100;
+...     print("The x value inside the method is ",x)
+...
+>>> x=200
+>>> print(x)
+200
+>>> test()
+The x value inside the method is  100
+>>> y=220
+>>> def test():
+...     x=100
+...     print("x and y are ",x,y)
+...
+>>> test()
+x and y are  100 220
+>>> def test1():
+...     print(y)
+...
+>>> test1()
+220
+>>> def circle(radius):
+...     return 3.141*radius*radius
+...
+>>> circle(4)
+50.256
+>>> def rectangle(length,breadth)
+  File "<stdin>", line 1
+    def rectangle(length,breadth)
+                                 ^
+SyntaxError: expected ':'
+>>> def rectangle(length,breadth):
+...     return length*breadth
+...
+>>> rectangle(3,4)
+12
+>>> rectangle(3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: rectangle() missing 1 required positional argument: 'breadth'
+>>> def rectangle(length,breadth=1):
+...     return length*breadth
+...
+>>> rectangle(5,4)
+20
+>>> rectangle(5)
+5
+>>> rectangle(breadth=10,length=4)
+40
+>>> def testargs(*x):
+...     return x*x;
+...
+>>> testargs(3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 2, in testargs
+TypeError: can't multiply sequence by non-int of type 'tuple'
+>>> def sum(*args):
+...     result=0
+...     for x in args:
+...             result = result + x
+...     return result
+...
+>>> sum(10,20)
+30
+>>> sum(10,20,30)
+60
+>>> sum(10)
+10
+>>> sum()
+0
+>>> print(args[1])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'args' is not defined
+>>>
 
 
 
 
 
 
-
-
-		
 
 
 
