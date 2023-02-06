@@ -1,0 +1,473 @@
+Python is an easy to learn, powerful programming language. 
+
+It has efficient high-level data structures and a simple but effective approach to object-oriented programming. 
+
+Python’s elegant syntax and dynamic typing, together with its interpreted nature, 
+make it an ideal language for scripting and rapid application development in many areas on most platforms.
+
+
+What can Python do?
+
+    Python can be used on a server to create web applications.
+    Python can be used alongside software to create workflows.
+    Python can connect to database systems. It can also read and modify files.
+    Python can be used to handle big data and perform complex mathematics.
+    Python can be used for rapid prototyping, or for production-ready software development.
+
+
+
+
+The Interpreter and Its Environment
+-----------------------------------
+
+To declare an encoding other than the default one, a special comment line should be added as the first line of the file. 
+
+The syntax is as follows:
+
+# -*- coding: encoding -*-
+
+Eg> to declare that Windows-1252 encoding is to be used, the first line of your source code file should be:
+
+# -*- coding: cp1252 -*-
+
+
+One exception to the first line rule is when the source code starts with a UNIX “shebang” line. 
+In this case, the encoding declaration should be added as the second line of the file. For example:
+
+#!ptpty python3
+# -*- coding: cp1252 -*-
+
+
+
+python Comments
+---------------
+Single Line ---> #
+Multi Line -----> """ this is considered as 
+				   multi line comment """
+
+
+Variables
+---------
+
+No need to explicitly declare it using any keyword
+
+We can assign directly any value, based on its value it will identify its type
+
+
+variable = value
+
+
+x = y = z = "Orange"
+Above statement assigns Orange to all x, y, and z variables
+
+
+
+x, y, z = "Orange", "Banana", "Cherry"
+Above statement assigns Orange to x, Banana to y and Cherry to z
+
+
+unpack a collection
+-------------------
+
+fruits = ["apple", "banana", "cherry"]
+x, y, z = fruits
+
+
+Input and Output Functions
+--------------------------
+
+print()  --- Output
+
+input("string")  ---> input 
+
+x = input('Enter your name:')
+print('Hello, ' + x)
+
+
+Global and Variables
+--------------------
+
+x = "awesome"   # This is global variables
+
+def myfunc():
+  y="some string'  # This is local variables
+  print("Python is " + x)
+
+myfunc()
+
+Datatypes ----> Builtin(implicitly)  and Userdefined (explictly)
+
+
+Datatype---> 1. nature, 2. Range 3. Operations
+
+Str   ---> strings, a-z of 255 length, concat,replace,split
+int ---> numbers, 
+
+Python has the following data types built-in by default, in these categories:
+-----------------------------------------------------------------------------
+
+Text Type: 			str
+
+Numeric Types: 	int, float, complex
+
+Sequence Types: 	list, tuple, range
+
+Mapping Type: 		dict
+
+Set Types: 			set, frozenset
+
+Boolean Type: 		bool
+
+Binary Types: 		bytes, bytearray, memoryview
+
+None Type: 			NoneType
+
+
+x + iy
+
+
+
+
+
+x=10;// 
+
+
+We can identify the type of a function using type(variable_name) 
+
+x=20;
+
+print(type(x))   ---> <class 'int'>
+
+x="hello"
+
+print(type(x))    ---> <class 'str'>
+
+
+
+type(n)  // Below error is produced when any variable is not defined or assigned
+
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'n' is not defined
+
+
+
+
+Control Statements
+------------------
+Statements which will transfer the control from one part of the program
+to another part of the program
+
+s1;
+s2;
+s3;
+s4;
+s5;
+
+
+1. Conditional based control statements
+	if, while, for , loop
+
+
+2. Unconditional based control statements
+   break, continue, pass
+
+
+
+if--> conditional based control statements used to select one block
+out of two blocks
+
+if condition:
+     statement1
+	  statement2
+	  statement3
+statement4
+
+
+next_statements
+
+Indentation
+
+if(cond)
+{
+
+
+}
+else
+{
+
+
+}
+
+
+if else
+---------
+
+
+if condition:
+	true_block statemets
+else:
+   false_block statements
+
+next_statement
+
+
+elif
+----
+
+if cond1:
+	s1
+elif cond2
+   s2
+elif cond3
+   s3
+elif condi4
+	s4;
+
+;
+;
+elif condn
+   sn
+else:
+   sm
+
+
+nested if
+----------
+
+if cond1:
+   if cond2:
+		s1
+		s2
+	else:
+		s3;
+		s4
+else:
+	if cond3
+		s5
+		s6;
+	else
+		s7
+		s8
+s9
+
+Loops
+------
+executing the same set of statemets for fixed number of times
+
+while  -- conditional controlled
+
+
+for --- counter controlled
+
+
+
+
+While
+-----
+
+while condition:
+	statements
+
+
+
+i = 1
+while i < 6:
+  print(i)
+  i += 1
+
+for 
+---
+for variable in collection:
+	statements
+
+for x in [10,20,30]
+	print("hello")
+
+
+contiue
+break
+
+
+Practice programs
+------------------
+
+1. checking a prime number or not
+2. check the given number is pallindrome 
+3. check the given number is armstrong number
+4. find the factorial of the given number
+5. find the ncr value
+6. print the upto n fibboncii series
+
+n!/ n-r! * r!
+
+for x in collection
+for x in range(m,n)
+m to n-1
+
+
+
+
+
+
+Collection---> Array, List, tuple, dictionary
+
+
+Array
+-----
+
+A array is a homogeneous collection of elements
+
+import array
+
+
+Array in Python can be created by importing array module. 
+array(data_type, value_list)
+
+# array with int type
+a = arr.array('i', [1, 2, 3])  # i refers to integer
+
+# array with float type
+b = arr.array('d', [2.5, 3.2, 3.3])  # d refers to float
+
+
+print ("Array before insertion : ", end =" ")
+for i in range (0, 3):
+    print (a[i], end =" ")
+print()
+
+Methods in Array
+---------------
+
+1. append()			Adds an element at the end of the list
+
+2. clear()			Removes all the elements from the list
+
+3. copy()			Returns a copy of the list
+fruits = ['apple', 'banana', 'cherry', 'orange']
+x = fruits.copy()
+
+4. count()			Returns the number of elements with the specified value
+fruits = ['apple', 'banana', 'cherry']
+x = fruits.count("cherry")
+
+5. extend()	      Add the elements of a list (or any iterable), 
+                  to the end of the current list
+
+list.extend(iterable) 
+iterable 	Required. Any iterable (list, set, tuple, etc.)
+
+
+fruits = ['apple', 'banana', 'cherry']
+points = (1, 4, 5, 9)
+fruits.extend(points)  = fruits = fruits + points
+
+
+6. index()	      Returns the index of the first element with the specified value
+fruits = ['apple', 'banana', 'cherry']
+x = fruits.index("cherry")
+
+7. insert()	      Adds an element at the specified position
+fruits = ['apple', 'banana', 'cherry']
+fruits.insert(1, "orange") 
+
+8. pop()	         Removes the element at the specified position
+fruits = ['apple', 'banana', 'cherry']
+fruits.pop(1)
+
+9. remove()			Removes the first item with the specified value
+fruits = ['apple', 'banana', 'cherry']
+fruits.remove("banana") 
+
+10.reverse()		Reverses the order of the list
+fruits = ['apple', 'banana', 'cherry']
+fruits.reverse() 
+
+11.sort()			Sorts the list
+cars = ['Ford', 'BMW', 'Volvo']
+cars.sort()
+
+
+List
+----
+Lists are sequential collection of heterogenous items
+
+Lists are mutable
+
+It allows duplicates
+
+
+Tuple
+-----
+Tuples are used to store multiple items in a single variable.
+
+Tuples are immutable
+
+Tuples are written with round brackets.
+frts = ("apple", "banana", "cherry")
+print(thistuple)
+
+Tuple items are ordered, unchangeable, and allow duplicate values.
+
+You can access tuple items by referring to the index number, 
+inside square brackets:
+
+negative index refers to reverse order
+
+x=(1,2,3,4)
+x[0]---> 1
+x[-1]--->4
+x[-2]=3
+
+You can specify a range of indexes by specifying where to start 
+and where to end the range.
+
+fruits = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+
+print(fruits[2:5])--> ["cherry","orange","kiwi"]  // 2 included and 5 excluded
+
+
+range(1,10)--->9
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
