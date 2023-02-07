@@ -277,6 +277,8 @@ using lambda in user defined function
 >>> f(2)
 
 
+
+
 File Handling
 -------------
 
@@ -294,6 +296,44 @@ r+ = to read and write the data, previous data will be overriden
 w+ = to write and read data, it will override the previous data
 
 a+ = to append and read data frpm file, it wont override the previous data
+
+
+Here are some of the functions in Python that allow you to read and write to files:
+
+    read() 			: This function reads the entire file and returns a string
+    readline() 		: This function reads lines from that file and returns as a string. It fetch the line n, 
+						if it is been called nth time.
+    readlines() 		: This function returns a list where each element is single line of that file.
+   
+    write() 			: This function writes a fixed sequence of characters to a file.
+    writelines() 		: This function writes a list of string.
+    append() 			: This function append string to the file instead of overwriting the file.
+
+    close()			: will close the given file reference which is opened
+
+
+
+simple steps to read contents from a file
+-------------------------------------------
+
+1. open the file reference in read mode
+	f = open(filenmae,mode)
+
+2. read the content from the file
+	f.read() / f.readline() / f.readlines()
+
+
+3. process the content // display the content on the output console
+	display the read content on monitor
+	
+
+4. close the file reference.
+	close()
+
+
+
+
+
 
 
 to read and print the contents of a file
@@ -330,7 +370,8 @@ file.write("This will add this line")
 file.close()
 
 
-# Python code to illustrate with()
+# Python code to illustrate with()   # from 2.7 version 
+
 with open("file.txt") as file:
 	data = file.read()
 # do something with data
@@ -343,7 +384,7 @@ with open("file.txt", "w") as f:
 
 
 # Python code to illustrate split() function
-with open("sample.txt", "r") as file:
+with open("d://sample.txt", "r") as file:
 	data = file.readlines()
 	for line in data:
 		word = line.split()
@@ -441,8 +482,14 @@ Steps to write to a csv file
 
 
 header = ['Name', 'M1 Score', 'M2 Score']
-data = [['Alex', 62, 80], ['Brad', 45, 56], ['Joey', 85, 98]]
-filename = 'd://Students_Data.csv'
+data = [
+			['Alex', 62, 80], 
+			['Brad', 45, 56], 
+			['Joey', 85, 98]
+		]
+
+
+filename = 'd://Students_Data1.csv'
 with open(filename, 'w', newline="") as file:
     csvwriter = csv.writer(file) # 2. create a csvwriter object
     csvwriter.writerow(header) # 4. write the header
@@ -466,6 +513,207 @@ with open(filename, 'w') as file:
 
 
 
+1. copying the contents from one file to another
+   two file references one for read, write
+	read the data from read mode file and write back to the write mode file
 
+2. copying the contents from one csv file to anoth csv
+   
+
+3. read the data from the csv file, update any field and write back to another csv file
+
+
+Object Oriented Programming
+---------------------------
+
+Is making the programming element as if it behaves like a real time entity
+
+features of OOPS
+
+1. class
+2. object
+3. encapsulation
+4. polymorphism
+5. inheritance
+
+
+Every object is identified by its unique nature
+If i group the objects which are having the same nature,
+then that group is called a class
+
+Students of V sem----> 
+
+An object is an instance of a class
+
+
+class is a generic entity
+object is a real time entity
+
+
+ax2 + bx +c  ----> generic
+
+3x2 + 4x+ 1  ---> specific
+
+
+
+
+1. data
+2. functions / operations
+
+
+class classname:
+	# memebers
+
+
+
+class Test:
+	pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Object Oriented Programming
+---------------------------
+
+syntax:
+
+	class classname:
+		#statements
+
+class class_name:
+    class body
+
+class Car:
+    pass
+
+obj1 = Car()
+
+
+adding a constructor
+--------------------
+class Car:
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
+
+
+class Car:
+    car_type = "Sedan"                 #class attribute
+    def __init__(self, name, color):
+        self.name = name               #instance attribute   
+        self.color = color             #instance attribute
+
+
+
+class car:  
+    def __init__(self,modelname, year):  
+        self.modelname = modelname  
+        self.year = year  
+    def display(self):  
+        print(self.modelname,self.year)  
+
+
+
+eg>
+
+class Employee:    
+    id = 10   
+    name = "Devansh"    
+    def display (self):    
+        print(self.id,self.name) 
+
+
+
+creating a object
+-----------------
+<object-name> = <class-name>(<arguments>)
+c1 = car("Toyota",2020)
+c1.display()
+
+
+    class Employee:  
+    def __init__(self, name, id):  
+        self.id = id  
+        self.name = name  
+  
+    def display(self):  
+        print("ID: %d \nName: %s" % (self.id, self.name)) 
+
+
+emp1 = Employee("John", 101)  
+emp2 = Employee("David", 102)  
+
+
+Zero parameterized constructor
+------------------------------
+
+class Student:  
+    # Constructor - non parameterized  
+    def __init__(self):  
+        print("This is non parametrized constructor")  
+    def show(self,name):  
+        print("Hello",name)  
+student = Student()  
+student.show("John")   
+
+default constructor
+------------------
+
+    class Student:  
+        roll_num = 101  
+        name = "Joseph"  
+
+		def __init__(self):
+			pass
+      
+        def display(self):  
+            print(self.roll_num,self.name) 
+
+
+	class Employee:
+			empid = 1001
+			ename = "Praveen"
+			dept = "Testing"
+
+			def showDetails():
+				print(empid, ename,dept)
+	 
+
+	objectName = classname();
+ 
+      
+    st = Student()  
+    st.display()  
+
+
+
+
+Constructor
+-----------
+
+Default or zero paratmeterized constructor
+
+parameterized constructor
 
 
