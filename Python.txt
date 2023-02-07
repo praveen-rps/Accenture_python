@@ -593,7 +593,230 @@ NameError: name 'args' is not defined
 
 
 
+Packing and unpacking
+---------------------
 
+def fun(a, b, c, d):
+    print(a, b, c, d)
+ 
+my_list = [1, 2, 3, 4]
+ 
+fun(my_list)
+
+
+def fun(a, b, c, d):
+    print(a, b, c, d)
+
+my_list = [1, 2, 3, 4]
+fun(*my_list)  // un packing the list into 4 values
+
+
+
+def mySum(*args):
+    return sum(args)
+ 
+print(mySum(1, 2, 3, 4, 5))
+print(mySum(10, 20))
+
+
+Collections----> Arrays, List, Tuples, Set, Dictionaries
+
+
+list ===> []
+tuple===> ()
+set=====> {}
+
+Set
+----
+Sets are used to store multiple items in a single variable.
+Set is one of 4 built-in data types in Python used to store collections of data
+
+Create a Set:
+
+fruits = {"apple", "banana", "cherry"}
+print(fruits)
+	
+Set items are immutable, un ordered and doesnot allow duplicates
+
+
+fruits = {"apple", "banana", "cherry", "apple"}
+
+print(fruits)
+
+
+fruits = {"apple", "banana", "cherry", True, 1, 2}
+here True and 1 are considered as same elements
+
+
+len() method is used to find the length of the set
+
+It is also possible to use the set() constructor to make a set.
+fruits = set(("apple", "banana", "cherry")) # note the double round-brackets
+print(fruits) 
+
+
+update() method is used to add elements to set
+
+fruits = {"apple", "banana", "cherry"}
+tropicalFruits = {"pineapple", "mango", "papaya"}
+
+fruits.update(tropicalFruits)
+
+
+We can add any iterable elements to set using update() method
+
+fruits = {"apple", "banana", "cherry"}
+mylist = ["kiwi", "orange"]
+fruits.update(mylist)
+
+print(fruits)
+
+Set Methods
+-----------
+
+add()				Adds an element to the set
+clear()				Removes all the elements from the set
+copy()				Returns a copy of the set
+difference()			Returns a set containing the difference between two or more sets
+difference_update()		Removes the items in this set that are also included in another, 
+                        specified set
+discard()				Remove the specified item
+intersection()			Returns a set, that is the intersection of two other sets
+intersection_update()	Removes the items in this set that are not present in other, specified set(s)
+isdisjoint()			Returns whether two sets have a intersection or not
+issubset()			Returns whether another set contains this set or not
+issuperset()			Returns whether this set contains another set or not
+pop()				Removes an element from the set
+remove()				Removes the specified element
+symmetric_difference()	Returns a set with the symmetric differences of two sets
+symmetric_difference_update()	inserts the symmetric differences from this set and another
+union()				Return a set containing the union of sets
+update()				Update the set with the union of this set and others
+
+
+
+Dictionary
+----------
+Dictionaries are used to store data values in key:value pairs.
+
+A dictionary is a collection which is ordered*, changeable and do not allow duplicates.
+
+Dictionaries are written with curly brackets, and have keys and values:
+
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+	
+}
+print(thisdict)
+
+
+
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(thisdict["brand"])
+
+
+Duplicate values will overwrite existing values:
+
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964,
+  "year": 2020
+}
+print(thisdict) 
+
+
+we can also add any other iterable elements as its value
+--------------------------------------------------------
+
+thisdict =	{
+  "brand": "Ford",
+  "electric": False,
+  "year": 1964,
+  "colors": ["red", "white", "blue"]
+} 
+ 
+
+It is also possible to use the dict() constructor to make a dictionary.
+
+thisdict = dict(name = "John", age = 36, country = "Norway")
+print(thisdict)
+
+
+Method 					Description
+------					------------
+clear()					Removes all the elements from the dictionary
+
+copy()					Returns a copy of the dictionary
+
+fromkeys()				Returns a dictionary with the specified keys and value
+
+get()					Returns the value of the specified key
+
+items()					Returns a list containing a tuple for each key value pair
+
+keys()					Returns a list containing the dictionary's keys
+
+pop()					Removes the element with the specified key
+
+popitem()					Removes the last inserted key-value pair
+
+setdefault()				Returns the value of the specified key. 
+						If the key does not exist: insert the key, with the specified value
+
+update()					Updates the dictionary with the specified key-value pairs
+
+values()					Returns a list of all the values in the dictionary
+
+
+car = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+
+x = car.setdefault("color", "white")
+
+since color is not available it sets color as white in car 
+
+
+
+car = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+
+x = car.setdefault("model", "Bronco")
+
+in the above example since model exists its value is changed to Bronco
+
+
+
+
+Lambda expressions
+------------------
+Lambda Functions in Python are anonymous functions, implying they don't have a name.
+
+syntax:
+
+lambda arguments: expression  
+
+Lambda functions can be used whenever function arguments are necessary.
+
+add = lambda num: num + 4  
+
+Same without lambda
+
+def add( num ):  
+   return num + 4  
+print( add(6) )
 
 
 
