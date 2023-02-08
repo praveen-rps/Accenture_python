@@ -415,9 +415,22 @@ display all the detaisl like name, age, exp, dept , manager from employee class
 
 
 
+Modules
+-------
+
+It is a collection of methods, variables or statements
+
+call it is a directory
+
+folders
 
 
 
+str = "ravi"
+
+str in "ravi"
+
+r%
 
 Regular Expressions
 -------------------
@@ -464,6 +477,15 @@ Basic patterns that match single chars
 11. +			=====> One or more occurrences
 
 12. {}			=====> Indicate the number of occurrences of a preceding regex to match.
+
+
+
+^a...s$	abs	No match
+alias	Match
+abyss	Match
+Alias	No match
+An abacus
+
 
 
 Example
@@ -550,6 +572,7 @@ Set 				Description
 [+] 	In sets, +, *, ., |, (), $,{} has no special meaning, 
 so [+] means: return a match for any + character in the string
 
+\\d\\w
 
 
 The findall() function returns a list containing all matches.
@@ -578,6 +601,230 @@ txt = "The rain in Spain"
 x = re.search("\s", txt)
 
 print("The first white-space character is located in position:", x.start()) 
+
+
+
+Working with excel
+------------------
+
+1. openpyxl
+
+2. xlstreader / writer
+
+3. Pandas
+
+
+Openpyxl is a Python library for reading and writing Excel (with extension xlsx/xlsm/xltx/xltm) files. 
+The openpyxl module allows Python program to read and modify Excel files.
+
+
+
+Program to print the particular cell value 
+-------------------------------------------
+import openpyxl
+
+path = "C:\\Users\\Admin\\Desktop\\demo.xlsx"
+
+# To open the workbook
+# workbook object is created
+wb_obj = openpyxl.load_workbook(path)
+
+# Get workbook active sheet object
+# from the active attribute
+sheet_obj = wb_obj.active
+
+
+# Cell object is created by using
+# sheet object's cell() method.
+cell_obj = sheet_obj.cell(row = 1, column = 1)
+
+# Print value of cell object
+# using the value attribute
+print(cell_obj.value)
+
+
+Code #2 : Determine total number of rows 
+----------------------------------------
+# import openpyxl module
+import openpyxl
+
+# Give the location of the file
+path = "d://data/data.xlsx"
+
+# to open the workbook
+# workbook object is created
+wb_obj = openpyxl.load_workbook(path)
+
+sheet_obj = wb_obj.active
+
+# print the total number of rows
+print(sheet_obj.max_row)
+
+
+
+Code #3 : Determine total number of columns 
+-------------------------------------------
+# importing openpyxl module
+import openpyxl
+
+# Give the location of the file
+path = "C:\\Users\\Admin\\Desktop\\demo.xlsx"
+
+# workbook object is created
+wb_obj = openpyxl.load_workbook(path)
+
+sheet_obj = wb_obj.active
+
+# print total number of column
+print(sheet_obj.max_column)
+
+
+
+Code #4 : Print all columns name 
+--------------------------------
+# importing openpyxl module
+import openpyxl
+
+# Give the location of the file
+path = "C:\\Users\\Admin\\Desktop\\demo.xlsx"
+
+# workbook object is created
+wb_obj = openpyxl.load_workbook(path)
+
+sheet_obj = wb_obj.active
+max_col = sheet_obj.max_column
+
+# Loop will print all columns name
+for i in range(1, max_col + 1):
+	cell_obj = sheet_obj.cell(row = 1, column = i)
+	print(cell_obj.value)
+
+
+Code #5 : Print first column value
+----------------------------------
+# importing openpyxl module
+import openpyxl
+
+# Give the location of the file
+path = "C:\\Users\\Admin\\Desktop\\demo.xlsx"
+
+# workbook object is created
+wb_obj = openpyxl.load_workbook(path)
+
+sheet_obj = wb_obj.active
+m_row = sheet_obj.max_row
+
+# Loop will print all values
+# of first column
+for i in range(1, m_row + 1):
+	cell_obj = sheet_obj.cell(row = i, column = 1)
+	print(cell_obj.value)
+
+Code #6 : Print a particular row value 
+---------------------------------------
+# importing openpyxl module
+import openpyxl
+
+# Give the location of the file
+path = "C:\\Users\\Admin\\Desktop\\demo.xlsx"
+
+# workbook object is created
+wb_obj = openpyxl.load_workbook(path)
+
+sheet_obj = wb_obj.active
+
+max_col = sheet_obj.max_column
+
+# Will print a particular row value
+for i in range(1, max_col + 1):
+	cell_obj = sheet_obj.cell(row = 2, column = i)
+	print(cell_obj.value, end = " ")
+
+
+
+Code #1 : Program to print a active sheet title name
+----------------------------------------------------
+# import openpyxl module
+import openpyxl
+
+# Call a Workbook() function of openpyxl
+# to create a new blank Workbook object
+wb = openpyxl.Workbook()
+
+# Get workbook active sheet
+# from the active attribute.
+sheet = wb.active
+
+# Once have the Worksheet object,
+# one can get its name from the
+# title attribute.
+sheet_title = sheet.title
+
+print("active sheet title: " + sheet_title)
+
+
+Code #2 :Program to write to an Excel sheet
+-------------------------------------------
+# import openpyxl module
+import openpyxl
+
+# Call a Workbook() function of openpyxl
+# to create a new blank Workbook object
+wb = openpyxl.Workbook()
+
+# Get workbook active sheet
+# from the active attribute
+sheet = wb.active
+
+# Cell objects also have row, column
+# and coordinate attributes that provide
+# location information for the cell.
+
+# Note: The first row or column integer
+# is 1, not 0. Cell object is created by
+# using sheet object's cell() method.
+c1 = sheet.cell(row = 1, column = 1)
+
+# writing values to cells
+c1.value = "ANKIT"
+
+c2 = sheet.cell(row= 1 , column = 2)
+c2.value = "RAI"
+
+# Once have a Worksheet object, one can
+# access a cell object by its name also.
+# A2 means column = 1 & row = 2.
+c3 = sheet['A2']
+c3.value = "RAHUL"
+
+# B2 means column = 2 & row = 2.
+c4 = sheet['B2']
+c4.value = "RAI"
+
+# Anytime you modify the Workbook object
+# or its sheets and cells, the spreadsheet
+# file will not be saved until you call
+# the save() workbook method.
+wb.save("d://data/demowrite.xlsx")
+
+
+code 3: Program to add Sheets in the Workbook
+---------------------------------------------
+# import openpyxl module
+import openpyxl
+
+# Call a Workbook() function of openpyxl
+# to create a new blank Workbook object
+wb = openpyxl.Workbook()
+
+sheet = wb.active
+
+# Sheets can be added to workbook with the
+# workbook object's create_sheet() method.
+wb.create_sheet(index = 1 , title = "demo sheet2")
+
+wb.save("C:\\Users\\user\\Desktop\\demo.xlsx")
+
 
 
 
