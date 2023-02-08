@@ -843,15 +843,17 @@ a.display()
 Python program to demonstrate error if we forget to invoke __init__() of the parent
 ------------------------------------------------------------------------------------
 
-class A:
-	def __init__(self, n='Rahul'):
+class A:  
+	def __init__(self, n):
 		self.name = n
 
 
 class B(A):
-	def __init__(self, roll):
+	def __init__(self, name,roll):
 		self.roll = roll
+		self.name=name
 
+B = B + A
 
 object = B(23)
 print(object.name)

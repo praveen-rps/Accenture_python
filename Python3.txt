@@ -1,0 +1,638 @@
+Access modifiers specify the level of security to the data / Methods
+
+
+A Class in Python has three types of access modifiers:
+
+    Public Access Modifier
+    Protected Access Modifier
+    Private Access Modifier
+
+
+The members of a class that are declared public are easily accessible from any part of the program. 
+All data members and member functions of a class are public by default. 
+
+
+# program to illustrate public access modifier in a class
+
+class Student:
+	
+	# constructor
+	def __init__(self, name, age):
+		
+		# public data members
+		self.name = name
+		self.age = age
+
+	# public member function	
+	def displayAge(self):
+		
+		# accessing public data member
+		print("Age: ", self.age)
+
+
+# creating object of the class
+obj = Student("Ravi", 20)
+
+# accessing public data member
+print("Name: ", obj.name) # Ravi
+
+# calling public member function of the class
+obj.displayAge()
+
+
+Protected
+---------
+
+The members of a class that are declared protected are only accessible to a class derived from it. 
+Data members of a class are declared protected by adding a single underscore ‘_’ symbol before the data member of that class. 
+
+
+
+# program to illustrate protected access modifier in a class
+
+# super class
+class Stud:
+	
+	# protected data members
+	_name = None
+	_roll = None
+	_branch = None
+	
+	# constructor
+	def __init__(self, name, roll, branch):
+		self._name = name
+		self._roll = roll
+		self._branch = branch
+	
+	# protected member function
+	def _displayRollAndBranch(self):
+
+		# accessing protected data members
+		print("Roll: ", self._roll)
+		print("Branch: ", self._branch)
+
+
+# derived class
+class Test(Stud):
+
+	# constructor
+	def __init__(self, name, roll, branch):
+				Student.__init__(self, name, roll, branch)
+		
+	# public member function
+	def displayDetails(self):
+				
+				# accessing protected data members of super class
+				print("Name: ", self._name)
+				
+				# accessing protected member functions of super class
+				self._displayRollAndBranch()
+
+# creating objects of the derived class	
+obj = Test("Praveen", 1706256, "Information Technology")
+
+# calling public member functions of the class
+obj.displayDetails()
+
+
+Private
+-------
+
+The members of a class that are declared private are accessible within the class only, 
+private access modifier is the most secure access modifier. 
+
+Data members of a class are declared private by adding a double underscore ‘__’ symbol 
+before the data member of that class. 
+
+
+
+# program to illustrate private access modifier in a class
+
+class Sample:
+	
+	# private members
+	__name = None
+	__roll = None
+	__branch = None
+
+	# constructor
+	def __init__(self, name, roll, branch):
+		self.__name = name
+		self.__roll = roll
+		self.__branch = branch
+
+	# private member function
+	def __displayDetails(self):
+		
+		# accessing private data members
+		print("Name: ", self.__name)
+		print("Roll: ", self.__roll)
+		print("Branch: ", self.__branch)
+	
+	# public member function
+	def accessPrivateFunction(self):
+			
+		# accessing private member function
+		self.__displayDetails()
+
+# creating object
+obj = Sample("Praveen", 1706256, "Information Technology")
+
+# calling public member function of the class
+obj.accessPrivateFunction()
+
+
+Program to demonstrates the all the three access modifiers
+-----------------------------------------------------------
+
+# program to illustrate access modifiers of a class
+
+# super class
+class Super:
+	
+	# public data member
+	var1 = None
+
+	# protected data member
+	_var2 = None
+	
+	# private data member
+	__var3 = None
+	
+	# constructor
+	def __init__(self, var1, var2, var3):
+		self.var1 = var1
+		self._var2 = var2
+		self.__var3 = var3
+	
+	# public member function
+	def displayPublicMembers(self):
+
+		# accessing public data members
+		print("Public Data Member: ", self.var1)
+		
+	# protected member function
+	def _displayProtectedMembers(self):
+
+		# accessing protected data members
+		print("Protected Data Member: ", self._var2)
+	
+	# private member function
+	def __displayPrivateMembers(self):
+
+		# accessing private data members
+		print("Private Data Member: ", self.__var3)
+
+	# public member function
+	def accessPrivateMembers(self):	
+		
+		# accessing private member function
+		self.__displayPrivateMembers()
+
+# derived class
+class Sub(Super):
+
+	# constructor
+	def __init__(self, var1, var2, var3):
+				Super.__init__(self, var1, var2, var3)
+		
+	# public member function
+	def accessProtectedMembers(self):
+				
+				# accessing protected member functions of super class
+				self._displayProtectedMembers()
+
+# creating objects of the derived class	
+obj = Sub("Student", 4, "python class")
+
+# calling public member functions of the class
+obj.displayPublicMembers()
+obj.accessProtectedMembers()
+obj.accessPrivateMembers()
+
+# Object can access protected member
+print("Object is accessing protected member:", obj._var2)
+
+# object can not access private member, so it will generate Attribute error
+#print(obj.__var3)
+
+
+Exception Handling: It is the process of handling the runtime erros
+runtime erros are caled exceptions
+
+
+
+Exceptions:
+-----------
+
+syntax:
+try:
+    # code that may cause exception
+except:
+    # code to run when exception occurs
+
+
+
+example
+-------
+
+try:
+    numerator = 10
+    denominator = 0
+
+    result = numerator/denominator
+
+    print(result)
+except:
+    print("Error: Denominator cannot be 0.")
+
+
+
+Catching specific exceptions
+----------------------------
+try:
+    
+    even_numbers = [2,4,6,8]
+    print(even_numbers[5])
+
+except ZeroDivisionError:
+    print("Denominator cannot be 0.")
+    
+except IndexError:
+    print("Index Out of Bound.")
+
+
+
+Python try with else clause
+----------------------------
+# program to print the reciprocal of even numbers
+
+try:
+    num = int(input("Enter a number: "))
+    assert num % 2 == 0
+except:
+    print("Not an even number!")
+else:
+    reciprocal = 1/num
+    print(reciprocal)
+
+
+
+Output
+
+If we pass an odd number:
+
+Enter a number: 1
+Not an even number!
+
+If we pass an even number, the reciprocal is computed and displayed.
+
+Enter a number: 4
+0.25
+
+
+
+However, if we pass 0, we get ZeroDivisionError as the code block inside else is not handled by preceding except.
+
+Enter a number: 0
+Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+    reciprocal = 1/num
+ZeroDivisionError: division by zero
+
+
+
+
+Python try...finally
+--------------------
+
+try:
+    numerator = 10
+    denominator = 0
+
+    result = numerator/denominator
+
+    print(result)
+except:
+    print("Error: Denominator cannot be 0.")
+    
+finally:
+    print("This is finally block.")
+
+
+
+balance = 3999
+
+
+Exception
+
+raise
+
+
+if a < b:
+	raise 
+
+
+Creating userdefined exceptions
+-------------------------------
+
+Here's the syntax to define custom exceptions,
+
+class CustomError(Exception):
+    ...
+    pass
+
+try:
+   ...
+
+except CustomError:
+    ...
+
+
+Example: Python User-Defined Exception
+---------------------------------------
+
+# define Python user-defined exceptions
+class InvalidAgeException(Exception):
+    "Raised when the input value is less than 18"
+    pass
+
+# you need to guess this number
+number = 18
+
+try:
+    input_num = int(input("Enter a number: "))
+    if input_num < number:
+        raise InvalidAgeException
+    else:
+        print("Eligible to Vote")
+        
+except InvalidAgeException:
+    print("Exception occurred: Invalid Age")
+
+
+
+
+Customizing Exception Classes
+-----------------------------
+We can further customize this class to accept other arguments as per our needs.
+
+class SalaryNotInRangeError(Exception):
+    """Exception raised for errors in the input salary.
+
+    Attributes:
+        salary -- input salary which caused the error
+        message -- explanation of the error
+    """
+
+    def __init__(self, salary, message="Salary is not in (5000, 15000) range"):
+        self.salary = salary
+        self.message = message
+        super().__init__(self.message)
+
+
+salary = int(input("Enter salary amount: "))
+if not 5000 < salary < 15000:
+    raise SalaryNotInRangeError(salary)
+
+
+
+
+
+1. create a user defined exception called InsufficientBalancException
+
+2. create a class called Account with balance as data member and
+   withdraw a method, this method should take amount to withdraw
+   when we call this method, amount should deduct from balance field
+3. if balance < 1000 after withdraw then raise the exception
+
+
+Person class with name, age, exp
+
+Employee with dept, manager ----> Person
+
+display all the detaisl like name, age, exp, dept , manager from employee class
+
+
+
+
+
+
+
+Regular Expressions
+-------------------
+
+
+A regular expression is a special sequence of characters that helps you match or find other strings or sets of strings, 
+using a specialized syntax held in a pattern.
+
+
+Regular Expression related functions are available in python module called 're', so we need to import it
+before using it.
+
+
+
+The re module raises the exception re.error if an error occurs while compiling or using a regular expression.
+
+
+while dealing with regular expressions, we would use Raw Strings as r'expression'.
+
+
+Basic patterns that match single chars
+---------------------------------------
+
+1. a, X, 9, <      ====> Ordinary characters just match themselves exactly
+
+2. . (a period)    ====> matches any single character except newline '\n'
+
+3. \w			====> matches a "word" character: a letter or digit or underbar [a-zA-Z0-9_]
+
+4. \W              =====> matches any non-word character
+
+5. \s			=====> matches a single whitespace character -- space, newline, return, tab
+
+6. \d			=====> decimal digit [0-9]
+
+7. ^				=====> matches start of the string
+
+8. $				=====> match the end of the string
+
+9. ?				=====> Matches zero or one occurrence
+
+10. *			=====> Any number of occurrences (including 0 occurrences)
+
+11. +			=====> One or more occurrences
+
+12. {}			=====> Indicate the number of occurrences of a preceding regex to match.
+
+
+Example
+-------
+
+import re
+
+s = 'python portal: A computer science portal for students'
+
+match = re.search(r'portal', s)
+
+print('Start Index:', match.start())
+print('End Index:', match.end())
+
+
+
+
+Compilation Flags
+-----------------
+Compilation flags let you modify some aspects of how regular expressions work. 
+
+Flags are available in the re module under two names, a long name such as IGNORECASE and a short, one-letter form such as I.
+
+
+ASCII, A 	=====> Makes several escapes like \w, \b, \s and \d match only on ASCII characters with the respective property.
+
+
+DOTALL, S =====> Make, match any character, including newlines
+
+
+IGNORECASE, I =====> Do case-insensitive matches
+
+
+LOCALE, L   =====> Do a locale-aware match
+
+
+MULTILINE, M   =====> Multi-line matching, affecting ^ and $
+
+
+VERBOSE, X (for ‘extended’)   ====> Enable verbose REs, which can be organized more cleanly and understandably
+
+
+
+The “re” package provides several methods to actually perform queries on an input string. 
+
+Function 		Description
+--------		-----------
+findall 		Returns a list containing all matches
+
+search 		Returns a Match object if there is a match anywhere in the string
+
+split 		Returns a list where the string has been split at each match
+
+sub 			Replaces one or many matches with a string
+
+
+
+Search the string to see if it starts with "The" and ends with "Spain":
+
+import re
+
+txt = "The rain in Spain"
+x = re.search("^The.*Spain$", txt)
+
+
+
+Set 				Description
+---				------------
+[arn] 			Returns a match where one of the specified characters (a, r, or n) is present 
+
+[a-n] 			Returns a match for any lower case character, alphabetically between a and n 
+
+[^arn] 			Returns a match for any character EXCEPT a, r, and n 
+	
+[0123] 			Returns a match where any of the specified digits (0, 1, 2, or 3) are present 
+	
+[0-9] 			Returns a match for any digit between 0 and 9 
+	
+[0-5][0-9] 		Returns a match for any two-digit numbers from 00 and 59 	
+
+[a-zA-Z] 			Returns a match for any character alphabetically between a and z, lower case OR upper case 	
+
+
+[+] 	In sets, +, *, ., |, (), $,{} has no special meaning, 
+so [+] means: return a match for any + character in the string
+
+
+
+The findall() function returns a list containing all matches.
+-------------------------------------------------------------
+
+import re
+
+txt = "The rain in Spain"
+x = re.findall("ai", txt)
+print(x) 
+
+
+import re
+
+txt = "The rain in Spain"
+x = re.findall("Portugal", txt)
+print(x) 
+
+
+The search() function searches the string for a match, and returns a Match object if there is a match.
+------------------------------------------------------------------------------------------------------
+
+import re
+
+txt = "The rain in Spain"
+x = re.search("\s", txt)
+
+print("The first white-space character is located in position:", x.start()) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Match function
+--------------
+
+This function attempts to match RE pattern to string with optional flags.
+
+
+re.match(pattern, string, flags = 0)
+
+Pattern = this is the regular expression to be matched
+
+String = string to be matched with pattern
+
+
+
+
+
+
+
+
+
