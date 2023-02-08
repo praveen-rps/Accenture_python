@@ -827,6 +827,72 @@ wb.save("C:\\Users\\user\\Desktop\\demo.xlsx")
 
 
 
+Using Xlsxwriter to write the data into excel sheet
+---------------------------------------------------
+# import xlsxwriter module
+import xlsxwriter
+
+# Workbook() takes one, non-optional, argument
+# which is the filename that we want to create.
+
+
+workbook = xlsxwriter.Workbook('hello.xlsx')
+
+# The workbook object is then used to add new
+# worksheet via the add_worksheet() method.
+
+
+worksheet = workbook.add_worksheet()
+
+# Use the worksheet object to write
+# data via the write() method.
+
+
+worksheet.write('A1', 'Hello..')
+worksheet.write('B1', 'Geeks')
+worksheet.write('C1', 'For')
+worksheet.write('D1', 'Geeks')
+
+# Finally, close the Excel file
+# via the close() method.
+workbook.close()
+
+
+ Using the row-column notation(indexing value) for writing data in the specific cells.
+--------------------------------------------------------------------------------------
+
+# import xlsxwriter module
+import xlsxwriter
+
+workbook = xlsxwriter.Workbook('Example2.xlsx')
+worksheet = workbook.add_worksheet()
+
+# Start from the first cell.
+# Rows and columns are zero indexed.
+row = 0
+column = 0
+
+content = ["ankit", "rahul", "priya", "harshita",
+					"sumit", "neeraj", "shivam"]
+
+# iterating through content list
+for item in content :
+
+	# write operation perform
+	worksheet.write(row, column, item)
+
+	# incrementing the value of row by one
+	# with each iterations.
+	coulum += 1
+	
+workbook.close()
+
+ankit rahul priya harshit
+rahul
+priya
+harshit
+
+
 
 
 
