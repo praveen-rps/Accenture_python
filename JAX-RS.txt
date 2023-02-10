@@ -1,0 +1,374 @@
+
+webservices --------------> SOAP(
+
+webServices --------------> REST 
+
+
+
+
+
+
+Web Services
+------------
+
+What is Web Services?
+
+Web services are the types of internet software that uses standardized messaging protocol over the distributed 
+environment. It integrates the web-based application using the REST, SOAP, WSDL, and UDDI over the network. 
+For example, Java web service can communicate with .Net application.
+
+Features of web Services
+
+    Web services are designed for application to application interaction.
+    It should be interoperable.
+    It should allow communication over the network (Internet)
+
+
+The web services must be able to fulfill the following conditions:
+
+    The web service must be accessible over the internet.
+    The web service is discoverable through a common mechanism like UDDI.
+    It must be interoperable over any programming language or Operating System.
+
+There are two popular formats for request and response XML and JSON.
+    <getDetail>  
+    <id>DataStructureCourse</id>  
+    </getDetail>  
+
+	<employee>
+			<id>00987</id>
+			<name>Jack</name>
+			<salary>20000</salary>
+	</employee>
+
+
+    [    
+        "employee":   
+       {    
+            "id": 00987  
+            "name":       "Jack",     
+            "salary":      20000,     
+       }    
+    ]    
+
+
+
+To make a web service platform-independent, we make the request and response platform-independent.
+
+Now a question arises, how does the Application A know the format of Request and Response?
+
+The answer to this question is "Service Definition." Every web service offers a service definition. 
+Service definition specifies the following:
+
+    Request/ Response format: Defines the request format made by consumer and response format made by 
+							  web service.
+    Request Structure: Defines the structure of the request made by the application.
+    Response Structure: Defines the structure of response returned by the web service.
+    Endpoint: Defines where the services are available.
+
+
+Key Terminology of Web Services
+
+    Request and Response
+    Message Exchange Format: XML and JSON
+    Service Provider or Server
+    Service Consumer or Client
+    Service Definition
+    Transport: HTTP and MQ
+
+
+Request and Response: Request is the input to a web service, and the response is the output from a web service.
+
+Message Exchange Format: It is the format of the request and response. 
+There are two popular message exchange formats: XML and JSON.
+
+Service Provider or Server: Service provider is one which hosts the web service.
+
+Service Consumer or Client: Service consumer is one who is using the web service.
+
+Service Definition: Service definition is the contract between the service provider and service consumer. 
+Service definition defines the format of request and response, request structure, response structure, 
+and endpoint.
+
+Transport: Transport defines how a service is called. 
+There is two popular way of calling a service: HTTP and Message Queue (MQ).
+
+Characteristics of Web Services
+-------------------------------
+1. XML Based
+2. Loosely Coupled
+3. Coarse Grained
+4. Ability to be Synchronous or Asynchronous
+5. Supports Remote Procedure Calls (RPCs)
+6. Supports Document Exchange
+
+
+
+
+
+A Web Service is can be defined by following ways:
+
+    It is a client-server application or application component for communication.
+    The method of communication between two devices over the network.
+    It is a software system for the interoperable machine to machine communication.
+    It is a collection of standards or protocols for exchanging information between two devices or application.
+
+
+There are mainly two types of web services.
+
+
+    1. SOAP web services.
+    2. RESTful web services.
+
+
+Web Service Features
+--------------------
+
+
+
+
+SOAP Web Services
+------------------
+SOAP stands for Simple Object Access Protocol. 
+It is a XML-based protocol for accessing web services.
+
+SOAP is a W3C recommendation for communication between two applications.
+
+SOAP is XML based protocol. It is platform independent and language independent. 
+By using SOAP, you will be able to interact with other programming language applications.
+
+
+Advantages of Soap Web Services
+-------------------------------
+1. WS Security: SOAP defines its own security known as WS Security.
+2. Language and Platform independent: SOAP web services can be written in any programming language and 
+   executed in any platform.
+
+
+RESTful Web Services
+---------------------
+REST stands for REpresentational State Transfer.
+
+REST is an architectural style not a protocol.
+
+RESTFul web services are fast, platform independent.
+
+Permits different data format: RESTful web service permits different data format such as Plain Text, HTML, 
+XML and JSON.
+
+REST can use SOAP also.
+
+
+
+
+http://example.com/api/orders?stateCode={stateCode}
+http://example.com/api/orders?pageStart={pageStart}&pagesSize={pagesSize}
+http://example.com/api/orders?dateFrom={dateFrom}&dateTo={dateTo}
+http://example.com/api/orders/{orderId}
+http://example.com/api/orders/{orderId}/items
+http://example.com/api/orders/{orderId}/items?minPrice={minPrice}
+
+
+
+1. start.spring.io  ---> spring intializer
+
+
+@PathVariable
+
+@RequestBody
+
+@RequestParam
+
+
+
+Response response = Response.status(200).entity(data).build();
+
+ResponseEntity  ----> 
+
+
+
+HttpStatus
+
+
+
+ResponseEntity<String> response = new ResponseEntity<>("Hello", HttpStatus.CREATED);
+
+
+Validations  and Exceptions
+---------------------------
+
+
+JpaRepository
+CrudRepository
+
+Methods in JpaRepository
+--------------------------
+1. List<T> findAll();---> all the records from the table.
+
+2. save(Object)  ---> insert a record into the table
+
+Employee emp = new Employe(data);
+
+
+save(emp);
+
+
+delete(id)  -> primarykey
+delete(1001);
+
+
+findById(id);  --search for the record with the given id (primary key)
+findById(1003)---->
+
+
+select * from employee e where e.dept='sales' and e.desg='manager';
+
+@Query
+public 
+
+
+
+Validations
+
+
+@Size
+@Past
+@NotNull
+@Min
+@Max
+@Email
+@Format  --->r19919s
+@Value
+
+
+
+Embedded MongoDb  --- 
+H2
+
+
+
+External MongoDb
+
+
+
+1. @Document(collection="employee")
+
+
+2. MongoRepository (JpaRepository or CrudRepository)
+   findAll()
+   findById()
+   save()
+	delete()
+3. appliation.properties provide the mongodb database connection properties
+
+
+
+
+SpringConfig
+
+
+Two diff microservices
+--------------------------
+
+1. Communicate with each other.
+
+       1. RestTemplate
+	   2. FeignClient
+
+2. Service Discovery 
+
+3. Load Balancing
+
+Eureka Server
+
+
+4. Gateway   --> routing 
+	
+
+5. Config server  ----> CloudConfig
+
+9. Resiliency ---Resliency4j
+
+10. security for our urls  -- SpringSecurity
+
+
+/loans ------> loan related info
+/balance  ---> returning the balance
+/accountInfo ----> showing all the account related data
+/contactUs  ----> bank address
+/events  ---> new activities of bank
+
+11. containeraization  - - Docker
+
+
+Note / Post Managment Application
+----------------------------------
+
+
+NoteService  ----> Implemnet the functionalities of all the posts(M
+
+1. create a post
+2. search a post
+3. delete a post
+4. view all the comments received for my post
+
+Database: MySQL
+port : 8081
+
+notes(noteid,author,title,description)
+
+
+CommentService
+
+1. post a comment 
+2. update a comment
+3. delete my comment
+
+Database: Mongodb
+port : 8082
+comments(commentid,noteid,commenter,comment)
+
+
+RESTFul format  -  Springboot and spring data jpa
+
+
+inter service communcaiton : RestTemplate , FeignClient
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
