@@ -1,0 +1,36 @@
+Database Connectivity using python
+----------------------------------
+
+1. install corresponding driver ( MySql driver)
+
+	pip install mysql.connector
+
+
+2. create a connection object
+	conn = mysql.connector.connect(host,db,userid,passwd)
+
+
+3. create a cursor object
+    cursor = conn.cursor()
+
+4. execute the query
+
+		exeucte(sqlquery)-----> 
+		execute_many()
+		fetchOne()----> fetch one record from the resultset
+		fetchAll() ----> all records from the result set
+
+		rowcount() ----> counts the total records obtained by executing 
+							query
+
+		first(), last(), prev(), next(), current()
+		reset()
+		
+		commit() and rollback()
+     
+
+5. process the data
+
+6. close the connection
+   close()
+
